@@ -1,9 +1,10 @@
-import styled from "styled-components";
 import { useState } from "react";
+import styled from "styled-components";
 import logo from "../assets/img/logo.png";
-import Deck from "./Deck";
+import Fechadas from "./MapeamentoPerguntas";
 
 export default function App() {
+  const [answered, setAnswered] = useState([]);
   return (
     <>
       <ScreenContainer>
@@ -11,16 +12,15 @@ export default function App() {
           <img src={logo} alt="logo ZapRecall" />
           <h1>ZapRecall</h1>
         </LogoConteiner>
-
-        <Deck />
+        <Fechadas
+          answered={answered}
+          setAnswered={setAnswered}
+          data-identifier="flashcard"
+        />
       </ScreenContainer>
       <Footer>
-        <ContainerBotoes>
-          <button>Não Lembro!</button>
-          <button>Quase não lembrei</button>
-          <button>Zap!</button>
-        </ContainerBotoes>
-        <p>0/4 concluídos</p>
+        {console.log(answered)}
+        <p data-identifier="flashcard-counter">{answered.length}/8 concluídos</p>
       </Footer>
     </>
   );
@@ -74,35 +74,10 @@ const Footer = styled.div`
   font-size: 18px;
   color: #333333;
   padding: 10px;
-
-  ContainerBotoes {
-    display: flex;
-    width: 80%;
-    justify-content: space-between;
-    margin: 20px;
-  }
 `;
 const ContainerBotoes = styled.div`
   display: flex;
   width: 80%;
   justify-content: space-between;
   margin: 20px;
-
-  button {
-    width: 90px;
-    font-family: "Recursive";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: #ffffff;
-    background: blue;
-    border-radius: 5px;
-    border: 1px solid blue;
-    padding: 5px;
-  }
 `;

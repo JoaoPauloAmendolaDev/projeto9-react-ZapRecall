@@ -19,7 +19,6 @@ export default function App() {
         />
       </ScreenContainer>
       <Footer>
-        {console.log(answered)}
         <p data-identifier="flashcard-counter">{answered.length}/8 concluídos</p>
       </Footer>
     </>
@@ -74,10 +73,4 @@ const Footer = styled.div`
   font-size: 18px;
   color: #333333;
   padding: 10px;
-`;
-const ContainerBotoes = styled.div`
-  display: flex;
-  width: 80%;
-  justify-content: space-between;
-  margin: 20px;
 `;

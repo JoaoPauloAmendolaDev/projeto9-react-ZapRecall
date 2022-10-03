@@ -13,13 +13,13 @@ export default function Cartas(props) {
   if (local === "initial") {
     return (
       <>
-        {console.log("fui chamado no local initial")}
         <PerguntaFechada>
           <p data-identifier="flashcard-index-item">Pergunta {index + 1}</p>
           <img
             data-identifier="flashcard-show-btn"
             src={setaPlay}
             onClick={() => setLocal("second")}
+            alt = 'Abrir Pergunta'
           />
         </PerguntaFechada>
       </>
@@ -33,6 +33,7 @@ export default function Cartas(props) {
           data-identifier="flashcard-turn-btn"
           onClick={() => setLocal("third")}
           src={setaVirar}
+          alt ='Mostrar Resposta'
         />
       </PerguntaAberta>
     );
@@ -81,7 +82,7 @@ export default function Cartas(props) {
     return (
       <Right>
         <p data-identifier="flashcard-index-item">Pergunta {index + 1}</p>
-        <img data-identifier="flashcard-status" src={iconeAcerto} />
+        <img data-identifier="flashcard-status" src={iconeAcerto} alt='LEMBREI!' />
       </Right>
     );
   }
@@ -89,7 +90,7 @@ export default function Cartas(props) {
     return (
       <Maybe>
         <p data-identifier="flashcard-index-item">Pergunta {index + 1}</p>
-        <img data-identifier="flashcard-status" src={iconeQuase} />
+        <img data-identifier="flashcard-status" src={iconeQuase} alt='QUASE ACERTEI' />
       </Maybe>
     );
   }
@@ -97,7 +98,7 @@ export default function Cartas(props) {
     return (
       <Wrong>
         <p data-identifier="flashcard-index-item">Pergunta {index + 1}</p>
-        <img data-identifier="flashcard-status" src={iconeErro} />
+        <img data-identifier="flashcard-status" src={iconeErro} alt='ERROU' />
       </Wrong>
     );
   }

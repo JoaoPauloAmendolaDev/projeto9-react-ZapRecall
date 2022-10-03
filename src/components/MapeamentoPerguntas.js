@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Cartas from "./Perguntas";
 
 const questions = [
@@ -38,11 +37,7 @@ const questions = [
 
 export default function Fechadas(props) {
   let {answered, setAnswered} = props
-  console.log("ta entrando na fechadas");
   return questions.map((question, index) => {
-    {
-      console.log(index);
-    }
     return <Cartas
       question={question.question}
       answer={question.answer}
